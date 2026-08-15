@@ -2,7 +2,6 @@
 # Fetch real HIV-1 pol gene (protease + RT) sequences from NCBI GenBank
 
 library(rentrez)
-library(Biostrings)
 
 # Search NCBI nucleotide database for HIV-1 pol gene sequences
 # Filtering: HIV-1, "pol" gene, length restricted to roughly the

@@ -48,6 +48,8 @@ Useful functions:
     - search_result['ids']  =>  the accession IDs of the search results 
     
 * entrez_fetch() 
+  - You provide the db, the accession IDs and the file return type. It fetches that on the NCBI and returns in the providede format  
+
 * entrez_summary()
 
 

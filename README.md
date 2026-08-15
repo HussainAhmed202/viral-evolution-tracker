@@ -38,5 +38,18 @@ _TBD — one-sentence takeaway once we have results._
 ## Tools
 R, Bioconductor (`Biostrings`, `DECIPHER`), `ape`, `rentrez`, `ggplot2`
 
+## rentrez
+Provides an R interface to the NCBI's 'EUtils' API, allowing users to search databases, process the results of those searches and pull data into their R sessions.
+Useful functions:
+* entrez_search() 
+  - You provide the db and the search term. It searches that on the NCBI and returns a search object
+  - Lets say search_result <- entrez_search(...)
+    - search_result['count']  =>  total number of matches
+    - search_result['ids']  =>  the accession IDs of the search results 
+    
+* entrez_fetch() 
+* entrez_summary()
+
+
 ## Author
 TBD

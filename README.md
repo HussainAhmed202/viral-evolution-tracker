@@ -52,6 +52,23 @@ Useful functions:
 
 * entrez_summary()
 
+## Biostrings
+Biostrings is a Bioconductor package for representing and manipulating biological sequences.
+
+It works primarily with:
+
+* DNA
+* RNA
+* Amino-acid
+
+The simplest one is a DNAString.
+* seq1 <- DNAString("ATGCGT")
+* seq2 <- DNAString("ATGAAA")
+* seq3 <- DNAString("ATGCCC")
+
+You could put them together:
+* seqs <- DNAStringSet(c(seq1, seq2, seq3))
+
 
 ## Author
 TBD

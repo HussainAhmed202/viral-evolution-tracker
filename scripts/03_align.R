@@ -12,7 +12,7 @@ aligned <- AlignSeqs(seqs, anchor = NA)
 
 # Save the alignment (as FASTA, and as an R object for later steps)
 writeXStringSet(aligned, filepath = "data/aligned_hiv_pol.fasta")
-saveRDS(aligned, "data/aligned_hiv_pol.rds")
+saveRDS(aligned, "data/aligned_hiv_pol.rds")  # serialize the R object. Will refer to it later when creating the phylogenetic tree 
 
 cat("Alignment complete.\n")
 cat("Aligned length (with gaps):", width(aligned)[1], "bp\n")

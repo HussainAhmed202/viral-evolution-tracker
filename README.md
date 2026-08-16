@@ -69,6 +69,30 @@ The simplest one is a DNAString.
 You could put them together:
 * seqs <- DNAStringSet(c(seq1, seq2, seq3))
 
+## DECIPHER
+DECIPHER is a Bioconductor package for biological sequence analysis.
+
+It can do things like:
+
+* sequence alignment
+* multiple sequence alignment
+* identifying differences between sequences
+* sequence classification
+* detecting and correcting errors
+* primer/probe design
+* taxonomy-related sequence analysis
+* handling large collections of sequences
+
+Useful functions:
+* AlignSeqs()
+  - Aligns the sequences. Returms a DNAStringSet object.
+
+* BrowseSeqs()
+  - Takes in the DNAStringSet object retuned by the AlignSeqs foo.
+  - View on the browser
+
+* DistanceMatrix()
+  - Distance matrix = a table that tells you how different every sequence is from every other sequence.
 
 ## Author
 TBD

@@ -94,5 +94,29 @@ Useful functions:
 * DistanceMatrix()
   - Distance matrix = a table that tells you how different every sequence is from every other sequence.
 
+## ape
+ape stands for Analyses of Phylogenetics and Evolution
+
+* Many methods available to generate the phylogenetic trees. These methods take in a dist object. Example of such methods include: 
+  * nj() 
+  * UPGMA()
+
+* We can read an existing tree using the read.tree().Trees are stored in the  .nwk file format. This standards for Newick.
+        ┌── A
+    ┌───┤
+────┤   └── B
+    │
+    │   ┌── C
+    └───┤
+        └── D
+        
+The above tree in the Newick file format would be like:
+((A,B),(C,D))
+
+* We can also write a tree using the write.tree()
+
+* We can plot trees using the plot() method.
+
+
 ## Author
-TBD
+Syed Hussain Ahmed

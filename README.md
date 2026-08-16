@@ -83,5 +83,16 @@ It can do things like:
 * taxonomy-related sequence analysis
 * handling large collections of sequences
 
+Useful functions:
+* AlignSeqs()
+  - Aligns the sequences. Returms a DNAStringSet object.
+
+* BrowseSeqs()
+  - Takes in the DNAStringSet object retuned by the AlignSeqs foo.
+  - View on the browser
+
+* DistanceMatrix()
+  - Distance matrix = a table that tells you how different every sequence is from every other sequence.
+
 ## Author
 TBD

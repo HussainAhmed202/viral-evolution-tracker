@@ -1,18 +1,33 @@
 # 05_protein_hotspots.R
-# Translate alignment to protein and find amino-acid-level mutation hotspots
+# Translate raw (unaligned) sequences to protein first, then align proteins,
+# then find amino-acid-level mutation hotspots
 
 library(Biostrings)
+library(DECIPHER)
 
-aligned <- readRDS("data/aligned_hiv_pol.rds")
+# Use the RAW sequences (no gaps yet) so reading frame is intact
+raw_seqs <- readDNAStringSet("data/raw/hiv_pol_sequences.fasta")
 
-# Translate the nucleotide alignment to protein (reading frame 1)
-# if.fuzzy.codon="solve" handles ambiguous bases (R, Y, etc.) reasonably
-protein_aligned <- translate(aligned, if.fuzzy.codon = "solve")
+# Trim each sequence to a length that's a multiple of 3
+# (partial/incomplete codons at the end would otherwise break translation)
+trim_to_codon <- function(s) {
+  len <- length(s)
+  trimmed_len <- len - (len %% 3)
+  subseq(s, start = 1, end = trimmed_len)
+}
 
-# Save protein alignment
+raw_seqs_trimmed <- DNAStringSet(lapply(raw_seqs, trim_to_codon))
+
+# Translate each sequence in its own frame
+protein_seqs <- translate(raw_seqs_trimmed, if.fuzzy.codon = "solve")
+
+# Now align the PROTEIN sequences directly (gaps only inserted now, post-translation)
+protein_aligned <- AlignSeqs(protein_seqs)
+
 writeXStringSet(protein_aligned, filepath = "data/aligned_hiv_pol_protein.fasta")
 
-# Per-position amino acid entropy (same idea as before, protein level)
+# ---- Amino acid hotspot analysis (same as before, now on valid protein alignment) ----
+
 cm_aa <- consensusMatrix(protein_aligned, as.prob = TRUE)
 
 shannon_entropy <- function(p) {

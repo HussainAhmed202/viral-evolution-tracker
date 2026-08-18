@@ -26,8 +26,6 @@ protein_aligned <- AlignSeqs(protein_seqs)
 
 writeXStringSet(protein_aligned, filepath = "data/aligned_hiv_pol_protein.fasta")
 
-# ---- Amino acid hotspot analysis (same as before, now on valid protein alignment) ----
-
 cm_aa <- consensusMatrix(protein_aligned, as.prob = TRUE)
 
 shannon_entropy <- function(p) {

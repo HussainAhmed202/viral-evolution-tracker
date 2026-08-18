@@ -36,7 +36,7 @@ shannon_entropy <- function(p) {
 aa_entropy <- apply(cm_aa, 2, shannon_entropy)
 
 hotspot_table_aa <- data.frame(
-  codon_position = seq_along(aa_entropy),
+  aa_position = seq_along(aa_entropy),  # this should be amino acid position
   entropy = aa_entropy
 )
 

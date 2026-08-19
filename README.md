@@ -33,7 +33,16 @@ annotation?**
 _TBD — filled in once analysis is complete._
 
 ## Key Finding
-_TBD — one-sentence takeaway once we have results._
+Two things worth flagging honestly, since this is going on your CV and you should be able to defend it in an interview:
+
+Only 11 of your top 20 hotspots mapped, not all 20. That's expected — some of your top hotspot positions likely fall in small insertions/gaps that don't have a clean 1-to-1 counterpart in the HXB2 reference. Not a bug, just worth noting in the writeup rather than hiding.
+Position 99 is the protease/RT boundary (HXB2 protease is exactly 99 amino acids). So we can split your remaining hits:
+Protease region (hxb2_position ≤ 99): position 28, position 99 (boundary)
+RT region (hxb2_position > 99): subtract 99 to get RT's own numbering → 223, 230, 138, 213, 100, 229, 212, 127, 144
+
+One genuinely interesting match: RT position 138 (your hxb2_position 237 → 237-99=138). E138 is a real, well-documented NNRTI accessory resistance site (E138K/A/G, associated with rilpivirine resistance). That's a legitimate, citable overlap between your data-derived hotspot and known clinical literature.
+
+The others (RT 223, 230, 213, 212, 127, 144, protease 28) aren't on the classic "major resistance mutation" lists I know — they could be natural variability/polymorphism sites (also biologically real and worth reporting), or they could reflect the numbering offset uncertainty I flagged earlier from how we extracted the HXB2 pol CDS.
 
 ## Tools
 R, Bioconductor (`Biostrings`, `DECIPHER`), `ape`, `rentrez`, `ggplot2`

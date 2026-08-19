@@ -18,6 +18,20 @@ writeLines(hxb2_cds, "data/raw/hxb2_all_cds.fasta")
 
 # Load all CDS entries and find the one whose header mentions "pol"
 all_cds <- readDNAStringSet("data/raw/hxb2_all_cds.fasta")
+
+/*
+  [1] "lcl|K03455.1_cds_AAB50258.1_1 [protein_id=AAB50258.1] [location=790..2292] [gbkey=CDS]"                  
+[2] "lcl|K03455.1_cds_AAB50259.1_2 [protein_id=AAB50259.1] [location=2358..5096] [gbkey=CDS]"                 
+[3] "lcl|K03455.1_cds_AAB50260.1_3 [protein_id=AAB50260.1] [location=5041..5619] [gbkey=CDS]"                 
+[4] "lcl|K03455.1_cds_AAB50261.1_4 [protein_id=AAB50261.1] [location=5559..5795] [gbkey=CDS]"                 
+[5] "lcl|K03455.1_cds_AAB50256.1_5 [protein_id=AAB50256.1] [location=join(5831..6045,8379..8424)] [gbkey=CDS]"
+[6] "lcl|K03455.1_cds_AAB50257.1_6 [protein_id=AAB50257.1] [location=join(5970..6045,8379..8653)] [gbkey=CDS]"
+[7] "lcl|K03455.1_cds_AAB50262.1_7 [protein_id=AAB50262.1] [location=6225..8795] [gbkey=CDS]"                 
+[8] "lcl|K03455.1_cds_AAB50263.1_8 [protein_id=AAB50263.1] [location=8797..9168] [gbkey=CDS]
+  
+  
+*/
+
 pol_entry <- all_cds[grepl("pol", names(all_cds), ignore.case = TRUE)]
 
 cat("Found", length(pol_entry), "CDS entr(y/ies) matching 'pol':\n")

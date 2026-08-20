@@ -35,6 +35,8 @@ cat("Saved figures/mutation_hotspot_plot.png\n")
 # ---- 2. Polished phylogenetic tree ----
 
 tree <- read.tree("results/hiv_pol_tree.nwk")
+tree$tip.label <- sub("\\..*$", "", sub(" .*", "", tree$tip.label))
+tree$tip.label <- sub("^([A-Z]+[0-9]+\\.[0-9]+).*", "\\1", tree$tip.label)
 
 png("figures/phylogenetic_tree_final.png", width = 1100, height = 1100, res = 130)
 plot(
@@ -46,6 +48,7 @@ plot(
   tip.color = "steelblue4"
 )
 title("HIV-1 pol Neighbor-Joining Tree (40 public sequences)", cex.main = 0.9)
+# Shorten tip labels to just the accession number (e.g. "PX471211.1")
 dev.off()
 
 cat("Saved figures/phylogenetic_tree_final.png\n")
